@@ -1,0 +1,55 @@
+@import 'bootstrap.less';
+
+@score-width: 60px;
+@avatar-width: 30px;
+
+@user-background-color: @gray-lighter;
+@user-padding: 5px;
+
+.qa-score {
+	width: @score-width;
+	float: left;
+
+	font-size: 150%;
+	text-align: center;
+}
+
+.qa-score-vote {
+	display: block;
+}
+
+.qa-content {
+	margin-left: @score-width + 10px;
+}
+
+a.qa-user, .qa-user { // Needs the a because of priority
+	@radius: (@avatar-width + 10px) / 2;
+	display: inline-block;
+	padding: @user-padding;
+	padding-left: @user-padding * 2 + @avatar-width;
+	padding-right: @user-padding + @radius / 2;
+	//width: 200px + @user-padding*2;
+	height: @avatar-width + @user-padding*2;
+	position: relative;
+
+	border-radius: @radius;
+	background-color: @user-background-color;
+	color: @text-color;
+
+	font-size: @font-size-small;
+	line-height: 1.3em;
+	text-decoration: none;
+
+	&:hover {
+		background-color: @brand-primary;
+		color: white;
+	}
+
+	img {
+		position: absolute;
+		top: @user-padding;
+		left: @user-padding;
+		width: @avatar-width;
+		height: @avatar-width;
+	}
+}
