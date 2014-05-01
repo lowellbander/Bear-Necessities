@@ -6,10 +6,6 @@
 @user-background-color: @gray-lighter;
 @user-padding: 5px;
 
-.qa-question-header {
-	margin-top: 0;
-}
-
 .qa-score {
 	width: @score-width;
 	float: left;
@@ -81,7 +77,16 @@ a.qa-user, .qa-user { // Needs the a because of priority
 	}
 }
 
+.qa-question-header {
+	margin-top: 0;
+}
+
+.qa-question {
+	.clearfix();
+}
+
 .qa-answer {
+	.clearfix();
 	padding-bottom: 30px;
 	margin-bottom: 30px;
 	border-bottom: 1px solid @gray-lighter;
