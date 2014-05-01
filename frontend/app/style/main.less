@@ -6,6 +6,10 @@
 @user-background-color: @gray-lighter;
 @user-padding: 5px;
 
+.qa-question-header {
+	margin-top: 0;
+}
+
 .qa-score {
 	width: @score-width;
 	float: left;
@@ -22,8 +26,27 @@
 	margin-left: @score-width + 10px;
 }
 
+.qa-course, .qa-tags {
+	display: block;
+	@media (min-width: @screen-sm-min) {
+		/* rules for tablet (768 > 992) */
+		display: inline;
+	}
+}
+
 .qa-meta {
 	margin-top: 20px;
+	color: @gray-light;
+	font-size: @font-size-small;
+	line-height: @avatar-width + @user-padding*2;
+
+	a {
+		color: @gray-light;
+
+		&:hover {
+			color: @gray;
+		}
+	}
 }
 
 a.qa-user, .qa-user { // Needs the a because of priority
@@ -56,4 +79,10 @@ a.qa-user, .qa-user { // Needs the a because of priority
 		width: @avatar-width;
 		height: @avatar-width;
 	}
+}
+
+.qa-answer {
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid @gray-lighter;
 }

@@ -5772,6 +5772,9 @@ button.close {
     display: none !important;
   }
 }
+.qa-question-header {
+  margin-top: 0;
+}
 .qa-score {
   width: 60px;
   float: left;
@@ -5784,8 +5787,28 @@ button.close {
 .qa-content {
   margin-left: 70px;
 }
+.qa-course,
+.qa-tags {
+  display: block;
+}
+@media (min-width: 768px) {
+  .qa-course,
+  .qa-tags {
+    /* rules for tablet (768 > 992) */
+    display: inline;
+  }
+}
 .qa-meta {
   margin-top: 20px;
+  color: #999999;
+  font-size: 12px;
+  line-height: 40px;
+}
+.qa-meta a {
+  color: #999999;
+}
+.qa-meta a:hover {
+  color: #555555;
 }
 a.qa-user,
 .qa-user {
@@ -5814,4 +5837,9 @@ a.qa-user img,
   left: 5px;
   width: 30px;
   height: 30px;
+}
+.qa-answer {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eeeeee;
 }
