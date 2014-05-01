@@ -3,20 +3,18 @@ SERVER_NAME = '127.0.0.1:5000'
 schema = {
     # Schema definition, based on Cerberus grammar. Check the Cerberus project
     # (https://github.com/nicolaiarocci/cerberus) for details.
-    'firstname': {
+    'body': {
         'type': 'string',
-        'minlength': 1,
-        'maxlength': 10,
     },
 }
 
 
-people = {
+post = {
     'schema': schema
 }
 
 DOMAIN = {
-    'people': people,
+    'post': post,
 }
 # Let's just use the local mongod instance. Edit as needed.
 
