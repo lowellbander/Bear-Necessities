@@ -5784,6 +5784,9 @@ button.close {
 .qa-content {
   margin-left: 70px;
 }
+.qa-meta {
+  margin-top: 20px;
+}
 a.qa-user,
 .qa-user {
   display: inline-block;
