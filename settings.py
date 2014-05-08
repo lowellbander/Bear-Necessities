@@ -12,6 +12,12 @@ schema = {
         'type': 'datetime',
         'default': datetime.datetime.now(),
     },
+    'upvotes': {
+        'type': 'integer',
+    },
+    'downvotes': {
+        'type': 'integer',
+    },
 }
 
 
