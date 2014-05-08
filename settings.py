@@ -28,13 +28,17 @@ post_schema = {
 }
 
 question_schema = {
-    'body': {
-        'type': 'string',
-        'default': 'This post has no body.',
-    },
     'title': {
         'type': 'string',
-        'default': 'This post has no title.',
+        'default': 'This question has no title.',
+    },
+    'post': {
+        'type': 'objectid',
+        'data_relation': {
+            'resource': 'post',
+            'field': '_id',
+            'embeddable': True,
+        },
     },
 }
 
