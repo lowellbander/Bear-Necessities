@@ -1,3 +1,5 @@
+import datetime
+
 SERVER_NAME = '127.0.0.1:5000'
 
 schema = {
@@ -5,6 +7,10 @@ schema = {
     # (https://github.com/nicolaiarocci/cerberus) for details.
     'body': {
         'type': 'string',
+    },
+    'when': {
+        'type': 'datetime',
+        'default': datetime.datetime.now(),
     },
 }
 
