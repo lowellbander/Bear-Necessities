@@ -7,16 +7,23 @@ schema = {
     # (https://github.com/nicolaiarocci/cerberus) for details.
     'body': {
         'type': 'string',
-    },
-    'when': {
-        'type': 'datetime',
-        'default': datetime.datetime.now(),
+        'default': 'This post has no body.',
     },
     'upvotes': {
         'type': 'integer',
+        'default': 0,
     },
     'downvotes': {
         'type': 'integer',
+        'default': 0,
+    },
+    'views': {
+        'type': 'integer',
+        'default': 0,
+    },
+    'active': {
+        'type': 'bool',
+        'default': True,
     },
 }
 
