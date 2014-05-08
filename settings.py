@@ -2,7 +2,7 @@ import datetime
 
 SERVER_NAME = '127.0.0.1:5000'
 
-schema = {
+post_schema = {
     # Schema definition, based on Cerberus grammar. Check the Cerberus project
     # (https://github.com/nicolaiarocci/cerberus) for details.
     'body': {
@@ -27,13 +27,28 @@ schema = {
     },
 }
 
+question_schema = {
+    'body': {
+        'type': 'string',
+        'default': 'This post has no body.',
+    },
+    'title': {
+        'type': 'string',
+        'default': 'This post has no title.',
+    },
+}
 
 post = {
-    'schema': schema
+    'schema': post_schema,
+}
+
+question = {
+    'schema': question_schema,
 }
 
 DOMAIN = {
     'post': post,
+    'question': question,
 }
 # Let's just use the local mongod instance. Edit as needed.
 
