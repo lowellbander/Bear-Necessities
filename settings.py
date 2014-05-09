@@ -40,6 +40,37 @@ question_schema = {
             'embeddable': True,
         },
     },
+    'tags': {
+        # should be Many-to-Many
+        'type': 'list',
+    },
+}
+
+answer_schema = {
+    'post': {
+        'type': 'objectid',
+        'data_relation': {
+            'resource': 'post',
+            'field': '_id',
+            'embeddable': True,
+        },
+    },
+    'question': {
+        'type': 'objectid',
+        'data_relation': {
+            'resource': 'question',
+            'field': '_id',
+            'embeddable': True,
+        },
+    },
+}
+
+tag_schema = {
+    # need to have a get_or_create()
+    'body': {
+        'type': 'string',
+        'default': 'EMPTY TAG',
+    },
 }
 
 post = {
@@ -50,9 +81,18 @@ question = {
     'schema': question_schema,
 }
 
+answer = {
+    'schema': answer_schema,
+}
+
+tag = {
+    'schema': tag_schema,
+}
+
 DOMAIN = {
     'post': post,
     'question': question,
+    'tag': tag,
 }
 # Let's just use the local mongod instance. Edit as needed.
 
