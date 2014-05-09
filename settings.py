@@ -41,8 +41,47 @@ question_schema = {
         },
     },
     'tags': {
+        # TODO
         # should be Many-to-Many
         'type': 'list',
+    },
+}
+
+answer_schema = {
+    'post': {
+        'type': 'objectid',
+        'data_relation': {
+            'resource': 'post',
+            'field': '_id',
+            'embeddable': True,
+        },
+    },
+    'question': {
+        'type': 'objectid',
+        'data_relation': {
+            'resource': 'question',
+            'field': '_id',
+            'embeddable': True,
+        },
+    },
+}
+
+comment_schema = {
+    'post': {
+        'type': 'objectid',
+        'data_relation': {
+            'resource': 'post',
+            'field': '_id',
+            'embeddable': True,
+        },
+    },
+    'parent': {
+        'type': 'objectid',
+        'data_relation': {
+            'resource': 'post',
+            'field': '_id',
+            'embeddable': True,
+        },
     },
 }
 
@@ -89,10 +128,15 @@ tag = {
     'schema': tag_schema,
 }
 
+comment = {
+    'schema': comment_schema,
+}
+
 DOMAIN = {
     'post': post,
     'question': question,
     'tag': tag,
+    'answer': answer,
 }
 # Let's just use the local mongod instance. Edit as needed.
 
