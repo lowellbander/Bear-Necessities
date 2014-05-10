@@ -25,6 +25,14 @@ post_schema = {
         'type': 'bool',
         'default': True,
     },
+    'user': {
+        'type': 'objectid',
+        'data_relation': {
+            'resource': 'user',
+            'field', '_id',
+            'embeddable': True,
+        },
+    },
 }
 
 question_schema = {
@@ -41,8 +49,9 @@ question_schema = {
         },
     },
     'tags': {
-        # TODO
-        # should be Many-to-Many
+        'type': 'list',
+    },
+    'courses': {
         'type': 'list',
     },
 }
@@ -104,11 +113,24 @@ answer_schema = {
     },
 }
 
-tag_schema = {
-    # need to have a get_or_create()
-    'body': {
+user_schema = {
+    'name': {
         'type': 'string',
-        'default': 'EMPTY TAG',
+        'default': 'NO NAME',
+    },
+    'major': {
+        'type': 'list',
+    },
+    'minor': {
+        'type': 'list',
+    },
+    'reputation': {
+        'type': 'int',
+        'default': 0,
+    },
+    'member_since': {
+        # possibly redundant to implicit, automatic '_created'
+        'type': 'datetime',
     },
 }
 
@@ -124,19 +146,19 @@ answer = {
     'schema': answer_schema,
 }
 
-tag = {
-    'schema': tag_schema,
-}
-
 comment = {
     'schema': comment_schema,
+}
+
+user = {
+    'schema': user_schema,
 }
 
 DOMAIN = {
     'post': post,
     'question': question,
-    'tag': tag,
     'answer': answer,
+    'user': user,
 }
 # Let's just use the local mongod instance. Edit as needed.
 
