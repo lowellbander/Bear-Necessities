@@ -1,6 +1,7 @@
 import datetime
 
-SERVER_NAME = '127.0.0.1:8726'
+#SERVER_NAME = '0.0.0.0'
+#SERVER_NAME = '127.0.0.1:8726'
 
 post_schema = {
     # Schema definition, based on Cerberus grammar. Check the Cerberus project
