@@ -29,7 +29,7 @@ post_schema = {
         'type': 'objectid',
         'data_relation': {
             'resource': 'user',
-            'field', '_id',
+            'field': '_id',
             'embeddable': True,
         },
     },
