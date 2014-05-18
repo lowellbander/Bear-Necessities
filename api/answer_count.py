@@ -13,8 +13,8 @@ def get_all_answers():
     return answers
 
 def main():
-    questions = get_all_questions()
-    answers = get_all_answers()
+    #questions = get_all_questions()
+    #answers = get_all_answers()
 
     # for each question, determine how many answers it has, set this as attr
 
