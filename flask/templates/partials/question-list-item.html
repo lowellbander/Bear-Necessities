@@ -1,0 +1,44 @@
+{#
+ # Partial template for Questions in a list
+ # Variables in context:
+ #   question - The Question that contains a Post
+ #   prefix - A string prefix to insert before each question listing
+ #}
+
+<div class="qa-question">
+    <div class="qa-score qa-score-small">
+        <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        {{ question.post.upvotes - question.post.downvotes }}
+        <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-arrow-down"></span></a>
+        <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-star-empty"></span></a>
+    </div>
+
+    <div class="qa-content">
+        <h4 class="qa-list-title">
+            {{ prefix }}<a href="/">{{ question.title }}</a>
+
+            {% if question.tags %}
+            <div class="qa-tags">
+                <small>
+                {% for tag in question.tags %}
+                <a href="#"><span class="label label-default">{{ tag }}</span></a>
+                {% endfor %}
+                </small>
+            </div>
+            {% endif %}
+        </h4>
+
+        {{ question.post.body }}
+
+        <div class="qa-meta qa-meta-small">
+            <ul class="list-inline">
+                <li><a href="#">Answer{# <span class="badge">0</span></a>#}</li>
+                <li><a href="#">Comment{# <span class="badge">0</span></a>#}</li>
+                <li><a href="#">Share{# <span class="badge">0</span></a>#}</li>
+                <li><a href="#">Posted {{ question._created }}</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

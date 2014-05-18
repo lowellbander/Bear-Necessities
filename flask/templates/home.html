@@ -1,11 +1,32 @@
-<!doctype html>
-<title>Bear Necesscites</title>
+{% extends 'base.html' %}
 
-{% assets 'css' %}
-    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
-{% endassets %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
 
-{% for question in data._items %}
-    {{ question.title }}
-    <br>
-{% endfor %}
+            <header class="page-header qa-question-header clearfix">
+                <h2 class="pull-left">Top Questions</h2>
+                <ul class="nav nav-pills pull-right" style="margin-top:15px;">
+                    <li class="active"><a href="#">Hot</a></li>
+                    <li><a href="#">Newest</a></li>
+                    <li><a href="#">Best</a></li>
+                    <li><a href="#">Featured</a></li>
+                </ul>
+            </header>
+
+            {% for question in data._items %}
+                {% with %}
+                    {% set prefix = '[CS] ' %}
+                    {% include 'partials/question-list-item.html' %}
+                {% endwith %}
+            {% endfor %}
+
+        </div>
+
+        <div class="col-md-3">
+            <h3>Related Questions</h3>
+        </div>
+    </div>
+</div>
+{% endblock %}
