@@ -22,9 +22,9 @@ def question():
 
     post_url = settings.API_URL + 'post/' + response.body['post']['_id']
     post = unirest.get(post_url, headers={'Content-Type':'application/json'}, params={'embedded':'{"user":1}'})
-    pprint(post.body)
     
     response.body['user'] = post.body['user']
+    response.body['votes'] = response.body['post']['upvotes'] - response.body['post']['downvotes'] 
     pprint(response.body)
 
     return render_template('question.html', data=response.body)
