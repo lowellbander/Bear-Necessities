@@ -14,6 +14,11 @@
 	text-align: center;
 }
 
+.qa-score-small {
+	width: @score-width * (2 / 3);
+	font-size: 100%;
+}
+
 .qa-score-vote {
 	display: block;
 }
@@ -43,6 +48,11 @@
 			color: @gray;
 		}
 	}
+}
+
+.qa-meta-small {
+	margin-top: 10px;
+	line-height: 1;
 }
 
 a.qa-user, .qa-user { // Needs the a because of priority
@@ -83,6 +93,9 @@ a.qa-user, .qa-user { // Needs the a because of priority
 
 .qa-question {
 	.clearfix();
+	border-bottom: 1px solid @gray-lighter;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .qa-answer {
@@ -90,4 +103,8 @@ a.qa-user, .qa-user { // Needs the a because of priority
 	padding-bottom: 30px;
 	margin-bottom: 30px;
 	border-bottom: 1px solid @gray-lighter;
+}
+
+.qa-list-title {
+	margin-top: 0;
 }

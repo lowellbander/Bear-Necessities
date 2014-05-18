@@ -5778,6 +5778,10 @@ button.close {
   font-size: 150%;
   text-align: center;
 }
+.qa-score-small {
+  width: 40px;
+  font-size: 100%;
+}
 .qa-score-vote {
   display: block;
 }
@@ -5806,6 +5810,10 @@ button.close {
 }
 .qa-meta a:hover {
   color: #555555;
+}
+.qa-meta-small {
+  margin-top: 10px;
+  line-height: 1;
 }
 a.qa-user,
 .qa-user {
@@ -5837,6 +5845,11 @@ a.qa-user img,
 }
 .qa-question-header {
   margin-top: 0;
+}
+.qa-question {
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 .qa-question:before,
 .qa-question:after {
@@ -5874,4 +5887,7 @@ a.qa-user img,
 }
 .qa-answer:after {
   clear: both;
+}
+.qa-list-title {
+  margin-top: 0;
 }
