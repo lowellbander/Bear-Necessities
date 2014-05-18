@@ -17,5 +17,7 @@ tags:
 <!-- answers! -->
 <h2>Answers</h2>
 {% for answer in data.answers %}
-    * {{answer.post.body}} <br><br>
+* {{answer.post.body}} <br>
+<b>Asked by</b> {{answer.post.user.name}}
+<br><br>
 {% endfor %}

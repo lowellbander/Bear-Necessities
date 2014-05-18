@@ -10,7 +10,10 @@ app = Flask(__name__)
 app.debug = True
 
 #create add user helper function
-
+def get_user(uid):
+    response = unirest.get(settings.API_URL + 'user/' + uid, headers={'Content-Type':'application/json'})
+    user = response.body
+    return user
 
 def get_answers(qid):
     #qid == question._id
@@ -18,19 +21,20 @@ def get_answers(qid):
     #get all questions
     response = unirest.get(settings.API_URL + 'answer/', headers={'Content-Type':'application/json'}, params={'embedded':'{"post":1}'})
     answers = response.body['_items']
-    #print "found %i answers in total" % len(answers)
 
     #filter for the ones that have qid has their question's id
     relevant = []
     for answer in answers:
         if answer['question'] == qid:
+            answer['post']['user'] = get_user(answer['post']['user'])
             relevant.append(answer)
-    #print "found %i relevant answers" % len(relevant)
     return relevant
 
 @app.route('/test')
 def test():
-    get_answers(request.args['id'])
+    _id = request.args['id']
+    get_answers(_id)
+    #get_user(_id)
     return "testing..."
 
 
@@ -39,9 +43,8 @@ def home_page():
     response = unirest.get(settings.API_URL + 'question', headers={'Content-Type':'application/json'}, params={'embedded':'{"post":1}'})
     return render_template('home.html', data=response.body)
 
-@app.route('/question')
-def question():
-    qid = request.args['id']
+@app.route('/question/<qid>')
+def question(qid):
     url = settings.API_URL + 'question/' + qid
     response = unirest.get(url, headers={'Content-Type':'application/json'}, params={'embedded':'{"post":1}'})
 
