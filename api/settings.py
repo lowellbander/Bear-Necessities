@@ -53,6 +53,10 @@ question_schema = {
     'tags': {
         'type': 'list',
     },
+    'answers': {
+        'type': 'int',
+        'default': 0,
+    },
     'courses': {
         'type': 'list',
     },
