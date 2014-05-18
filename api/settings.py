@@ -1,4 +1,5 @@
 import datetime
+API_URL = "https://qa-dev.uclalibrary.org/"
 
 #SERVER_NAME = '0.0.0.0'
 #SERVER_NAME = '127.0.0.1:8726'
