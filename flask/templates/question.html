@@ -1,0 +1,23 @@
+<!doctype html>
+<title> {{data.title}} | Bear Necesscites</title>
+
+<h1>{{ data.title }}</h1>
+<br>
+votes: {{data.votes}}
+<br>
+<p>{{ data.post.body }}</p>
+<br>
+tags:
+{% for tag in data.tags %}
+    <b> {{ tag }}</b>,
+{% endfor %}
+<br>
+<p>posted by: {{data.user.name}} (<b>{{data.user.reputation}}</b> reputation), on: {{ data.post._created }}</p>
+
+<!-- answers! -->
+<h2>Answers</h2>
+{% for answer in data.answers %}
+* {{answer.post.body}} <br>
+<b>Asked by</b> {{answer.post.user.name}}
+<br><br>
+{% endfor %}
