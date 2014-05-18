@@ -1,13 +1,24 @@
+import os
 import json
 from pprint import pprint
 
 from flask import Flask, render_template, request
+from flask.ext.assets import Environment, Bundle
 import unirest
 
 import settings
 
 app = Flask(__name__)
 app.debug = True
+
+assets = Environment(app)
+assets.load_path = [
+    os.path.join(os.path.dirname(__file__), 'bower_components'),
+    os.path.join(os.path.dirname(__file__), 'less'),
+]
+
+css = Bundle('main.less', filters='less', output='gen/main.css', depends='bootstrap/less/*.less')
+assets.register('css', css)
 
 #create add user helper function
 def get_user(uid):
@@ -36,7 +47,6 @@ def test():
     get_answers(_id)
     #get_user(_id)
     return "testing..."
-
 
 @app.route('/')
 def home_page():

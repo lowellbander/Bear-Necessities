@@ -1,6 +1,10 @@
 <!doctype html>
 <title>Bear Necesscites</title>
 
+{% assets 'css' %}
+    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+{% endassets %}
+
 {% for question in data._items %}
     {{ question.title }}
     <br>
