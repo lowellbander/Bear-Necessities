@@ -1,0 +1,26 @@
+<div class="qa-score">
+    <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-arrow-up"></span></a>
+    {{ post.upvotes - post.downvotes }}
+    <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-arrow-down"></span></a>
+    <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-star-empty"></span></a>
+</div>
+
+<div class="qa-content">
+    <p>{{ post.body }}</p>
+
+    <!-- Metadata on the post -->
+    <div class="qa-meta">
+
+        <a href="#" class="qa-user pull-right">
+            <img src="http://placehold.it/50x50" class="img-circle">
+            <strong>{{ post.user.name }}</strong><br>
+            <strong>{{ post.user.reputation }}</strong> &bull; 69 &bull; 7
+        </a>
+
+        <ul class="list-inline">
+            <li><a href="#">Comment{# <span class="badge">10</span>#}</a></li>
+            <li><a href="#">Share{# <span class="badge">1</span>#}</a></li>
+            <li><a href="#">Posted {{ post._created }}</a></li>
+        </ul>
+    </div>
+</div>
