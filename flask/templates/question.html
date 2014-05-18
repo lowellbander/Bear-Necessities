@@ -1,23 +1,55 @@
-<!doctype html>
-<title> {{data.title}} | Bear Necesscites</title>
+{% extends 'base.html' %}
 
-<h1>{{ data.title }}</h1>
-<br>
-votes: {{data.votes}}
-<br>
-<p>{{ data.post.body }}</p>
-<br>
-tags:
-{% for tag in data.tags %}
-    <b> {{ tag }}</b>,
-{% endfor %}
-<br>
-<p>posted by: {{data.user.name}} (<b>{{data.user.reputation}}</b> reputation), on: {{ data.post._created }}</p>
+{% block title %}{{ data.title }} | {{ super() }}{% endblock %}
 
-<!-- answers! -->
-<h2>Answers</h2>
-{% for answer in data.answers %}
-* {{answer.post.body}} <br>
-<b>Asked by</b> {{answer.post.user.name}}
-<br><br>
-{% endfor %}
+{% block body %}
+<div class="container">
+    <div class="row">
+    
+        <div class="col-md-12">
+
+            <header class="page-header qa-question-header">
+                {#<div class="qa-course">
+                    in <strong><a href="#">Computer Science 131</a></strong>
+                </div>#}
+                {% if data.tags %}
+                <div class="qa-tags">
+                    about 
+                    {% for tag in data.tags %}
+                        <a href="#"><span class="label label-default">{{ tag }}</span></a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <h2>{{ data.title }}</h2>
+            </header>
+
+            <div class="qa-question">
+                {% with %}
+                    {% set post = data.post %}
+                    {% include 'partials/post.html' %}
+                {% endwith %}
+            </div>
+
+            <header class="page-header">
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a href="#">Votes</a></li>
+                    <li><a href="#">Activity</a></li>
+                    <li><a href="#">Newest</a></li>
+                </ul>
+                <h3>2 Answers</h3>
+            </header>
+
+            {% for answer in data.answers %}
+                <div class="qa-answer">
+                    {% with %}
+                        {% set post = answer.post %}
+                        {% include 'partials/post.html' %}
+                    {% endwith %}
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

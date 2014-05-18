@@ -65,8 +65,10 @@ def question(qid):
     #get the post (parent)
     post_url = settings.API_URL + 'post/' + response.body['post']['_id']
     post = unirest.get(post_url, headers={'Content-Type':'application/json'}, params={'embedded':'{"user":1}'})
+    print post.code
     
-    response.body['user'] = post.body['user']
+    response.body['post']['user'] = post.body['user'] if post.code == 200 else {}
+
     response.body['votes'] = response.body['post']['upvotes'] - response.body['post']['downvotes'] 
     #pprint(response.body)
 
