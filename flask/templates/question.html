@@ -18,6 +18,6 @@ tags:
 <h2>Answers</h2>
 {% for answer in data.answers %}
 * {{answer.post.body}} <br>
-<b>Asked by</b> {{answer.post.user.name}}
+<b> {{answer.post.user.name}} ({{answer.post.user.reputation}}) on {{answer.post._created}}</b> | {{answer.post.upvotes}} upvotes, {{answer.post.downvotes}} downvotes
 <br><br>
 {% endfor %}
