@@ -2,12 +2,8 @@ import os
 import json
 from pprint import pprint
 
-<<<<<<< HEAD
 from flask import Flask, render_template, send_from_directory
 from flask.ext.assets import Environment, Bundle
-=======
-from flask import Flask, render_template, request
->>>>>>> master
 import unirest
 
 import settings
