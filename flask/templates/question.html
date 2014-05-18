@@ -13,4 +13,9 @@ tags:
 {% endfor %}
 <br>
 <p>posted by: {{data.user.name}} (<b>{{data.user.reputation}}</b> reputation), on: {{ data.post._created }}</p>
+
 <!-- answers! -->
+<h2>Answers</h2>
+{% for answer in data.answers %}
+    * {{answer.post.body}} <br><br>
+{% endfor %}
