@@ -21,7 +21,7 @@ assets.load_path = [
 css = Bundle('main.less', filters='less', output='gen/main.css', depends='bootstrap/less/*.less')
 assets.register('css', css)
 
-js = Bundle('jquery/dist/jquery.js', 'bootstrap/dist/js/bootstrap.js', filters='rjsmin', output='gen/main.js')
+js = Bundle('jquery/jquery.js', 'bootstrap/js/bootstrap.js', filters='rjsmin', output='gen/main.js')
 assets.register('js', js)
 
 #create add user helper function
