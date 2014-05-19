@@ -15,7 +15,7 @@ assets = Environment(app)
 assets.load_path = [
     os.path.join(os.path.dirname(__file__), 'less'),
     os.path.join(os.path.dirname(__file__), 'js'),
-    os.path.join(os.path.dirname(__file__), 'bower_components'),
+    os.path.join(os.path.dirname(__file__), 'lib'),
 ]
 
 css = Bundle('main.less', filters='less', output='gen/main.css', depends='bootstrap/less/*.less')
