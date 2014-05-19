@@ -54,8 +54,8 @@ question_schema = {
         'type': 'list',
     },
     'answers': {
-        'type': 'int',
-        'default': 0,
+        'type': 'string',
+        'default': '0',
     },
     'courses': {
         'type': 'list',
