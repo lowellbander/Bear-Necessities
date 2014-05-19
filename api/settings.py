@@ -60,6 +60,9 @@ question_schema = {
     'courses': {
         'type': 'list',
     },
+    'major': {
+        'type': 'string',
+    },
 }
 
 answer_schema = {
