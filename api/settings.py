@@ -58,7 +58,7 @@ question_schema = {
         'default': '0',
     },
     'courses': {
-        'type': 'list',
+        'type': 'string',
     },
     'major': {
         'type': 'string',
