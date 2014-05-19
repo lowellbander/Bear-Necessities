@@ -33,18 +33,18 @@ class Post(db.Document):
     user = db.ReferenceField(User)
     meta = {'allow_inheritance': True}
 
+class Answer(Post):
+    pass
+
+class Comment(Post):
+    parent = db.ReferenceField(Post)
+
 class Question(Post):
     title = db.StringField(default='This question has no title.')
     tags = db.ListField(db.StringField())
     course = db.StringField()
     major = db.StringField()
-
-class Answer(Post):
-    question = db.ReferenceField(Question)
-
-class Comment(Post):
-    parent = db.ReferenceField(Post)
-
+    answer = db.ListField(db.ReferenceField(Answer))
 
 class UserResource(Resource):
     document = User
@@ -54,9 +54,6 @@ class UserResource(Resource):
 
 class AnswerResource(Resource):
     document = Answer
-    filters = {
-        'question': [ops.Exact]
-    }
 
 class CommentResource(Resource):
     document = Comment
@@ -67,7 +64,8 @@ class CommentResource(Resource):
 class QuestionResource(Resource):
     document = Question
     related_resources = {
-        'user': UserResource
+        'user': UserResource,
+        'answer': AnswerResource
     }
     filters = {
         'tag': [ops.Exact, ops.Contains],
