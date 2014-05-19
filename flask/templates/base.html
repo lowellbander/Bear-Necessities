@@ -54,10 +54,14 @@
 	{% endblock %}
 
 
-	{% assets 'js' %}
-		<script src="{{ ASSET_URL }}" type="text/javascript"></script>
-	{% endassets %}
+	{% block js %}
+		{% assets 'js' %}
+			<script src="{{ ASSET_URL }}" type="text/javascript"></script>
+		{% endassets %}
+		<script src="http://navbar-dev.uclalibrary.org/navbar.js?container=container" type="text/javascript"></script>
 
-	<script src="http://navbar-dev.uclalibrary.org/navbar.js?container=container" type="text/javascript"></script>
+		{% block js_extra %}
+		{% endblock %}
+	{% endblock %}
 </body>
 </html>

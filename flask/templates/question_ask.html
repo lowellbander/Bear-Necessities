@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    
+        <div class="col-md-12">
+
+            <header class="page-header qa-question-header clearfix">
+                <h2 class="pull-left">Ask a question</h2>
+            </header>
+
+            <form role="form" method="post">
+                {% if courses %}
+                    <div class="form-group">
+                        <label for="course">Course</label>
+                        <input class="form-control" type="hidden" name="course" />
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label for="question">Question</label>
+                    <textarea class="form-control" name="body" placeholder="Question"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{# TODO: Move this out of here #}
+{% block js_extra %}
+    <script type="text/javascript">
+        var courses = {{ courses | safe }};
+        $('input[name=course]').optionTree(courses, {
+            empty_value: 'null',
+            choose: '...',
+            select_class: 'form-control'
+        });
+    </script>
+{% endblock %}
