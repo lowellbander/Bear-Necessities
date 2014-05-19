@@ -12,19 +12,18 @@ def get_all_answers():
     answers = response.body['_items']
     return answers
 
+def set_nAnswers(qid, nAnswers):
+    response = unirest.get(settings.API_URL + 'question/' + qid, headers={'Content-Type':'application/json'})
+    datum = {"answers": str(nAnswers)}
+    pprint(response.body)
+    etag = response.body['_etag']
+
+    response2 = unirest.patch(settings.API_URL +
+            'question/' + qid,
+            headers={'Accept':'application/json', 'If-Match': etag}, params=datum)
+    pprint(response2.body)
+
 def main():
-    # response = unirest.get(settings.API_URL + '/post/536c3df3dae5f13314f7bb65', headers={'Content-Type':'application/json'})
-    # pprint(response.body)
-
-    # datum = {"views": "22"}
-    # etag = response.body['_etag']
-
-    # response2 = unirest.patch(settings.API_URL +
-    #         '/post/536c3df3dae5f13314f7bb65',
-    #         headers={'Accept':'application/json', 'If-Match': etag}, params=datum)
-    # pprint(response2.body)
-
-
 
     questions = get_all_questions()
     answers = get_all_answers()
@@ -34,8 +33,8 @@ def main():
         for answer in answers:
             if answer['question'] == question['_id']:
                 numAnswers += 1
-        #if numAnswers is not 
-
+        if numAnswers is not int(question['answers']):
+            set_nAnswers(question['_id'], numAnswers)
 
 if __name__ == '__main__':
     main()
