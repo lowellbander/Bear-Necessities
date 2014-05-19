@@ -13,6 +13,17 @@ def get_all_answers():
     return answers
 
 def main():
+    response = unirest.get(settings.API_URL + '/post/536c3df3dae5f13314f7bb65', headers={'Content-Type':'application/json'})
+    pprint(response.body)
+
+    datum = {"views": 22}
+    etag = response.body['_etag']
+
+    response2 = unirest.patch(settings.API_URL +
+            '/post/536c3df3dae5f13314f7bb65',
+            headers={'Accept':'application/json', 'If-Match': etag}, params=datum)
+    pprint(response2.body)
+
     #questions = get_all_questions()
     #answers = get_all_answers()
 
