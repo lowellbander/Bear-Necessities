@@ -20,8 +20,8 @@ post_schema = {
         'default': 0,
     },
     'views': {
-        'type': 'integer',
-        'default': 0,
+        'type': 'string',
+        'default': '0',
     },
     'active': {
         'type': 'bool',
