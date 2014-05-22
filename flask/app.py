@@ -66,10 +66,7 @@ def question(qid):
     url = settings.API_URL + 'question/' + qid
     response = unirest.get(url, headers={'Content-Type':'application/json'}, params={'embedded':'{"post":1}'})
 
-    #get answers
-    #answers = get_answers(qid)
-    #pprint(answers)
-    #response.body['answers'] = answers
+    response.body['nAnswers'] = len(response.body['answer'])
 
     return render_template('question.html', data=response.body)
 
