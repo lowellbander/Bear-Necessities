@@ -47,17 +47,17 @@ def question_ask():
     if request.method == 'POST':
         print 'wat'
         print request.form['body']
-        post_response = unirest.post(settings.API_URL + 'post/', headers={'Accept':'application/json'}, params={
+        param = {
             'body': request.form['body'],
-            'user': '5377df73dae5f13c42854c4e'  # TODO: make this the logged in user
-        })
-        print post_response
-
-        question_response = unirest.post(settings.API_URL + 'question/', headers={'Accept': 'application/json'}, params={
             'title': request.form['title'],
-            'post': post_response.body['_id']
-        })
-        return redirect(url_for('question', qid=question_response.body['_id']))
+            'user': '53797257945d32603d5196f9',
+        }
+        print param
+        response = unirest.post(settings.API_URL + 'question/', headers={'Accept':'application/json', 'Content-Type': 'application-json'}, params=json.dumps(param))
+        print response.body
+
+        return redirect(url_for('question', qid=response.body['id']))
+
     else:
         return render_template('question_ask.html', courses=json.dumps(courses))
 
