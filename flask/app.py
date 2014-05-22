@@ -44,12 +44,16 @@ def question_ask():
             '131': 'cs131'
         }
     }
+
+
     if request.method == 'POST':
+        print "course: %r" % request.form['course']
         param = {
             'body': request.form['body'],
             'title': request.form['title'],
             'user': '53797257945d32603d5196f9',
             'tags': request.form['tags'].split(),
+            'course': request.form['course'],
         }
         response = unirest.post(settings.API_URL + 'question/', headers={'Accept':'application/json', 'Content-Type': 'application-json'}, params=json.dumps(param))
 
