@@ -7,7 +7,7 @@ Think Stack Overflow for UCLA.
 
 TODO
 ==========
-* make tags comma separated
+* make tags comma separated (build the list in realtime (angular?))
 * preview question before posting
 * typeahead for course listing using UCLAAPI
 * be able to answer a question
