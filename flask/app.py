@@ -36,7 +36,7 @@ def home_page():
     data = response.body['data']
     return render_template('home.html', data=data)
 
-@app.route('/question/ask', methods=['GET', 'POST'])
+@app.route('/question/ask/', methods=['GET', 'POST'])
 def question_ask():
     courses = {
         'Computer Science': {
@@ -57,6 +57,23 @@ def question_ask():
 
     else:
         return render_template('question_ask.html', courses=json.dumps(courses))
+
+@app.route('/question/answer/<qid>', methods=['GET', 'POST'])
+def question_answer(qid):
+    q = unirest.get(settings.API_URL + 'question/' + qid, headers={'Content-Type':'application/json'})
+
+    if request.method == 'POST':
+        param = {
+            'body': request.form['body'],
+            'question': qid,
+        }
+        url = settings.API_URL + 'answer/'
+        response = unirest.post(url, headers={'Accept':'application/json', 'Content-Type': 'application-json'}, params=json.dumps(param))
+
+        return redirect(url_for('question', qid=qid))
+
+    else:
+        return render_template('question_answer.html', data=q.body)
 
 @app.route('/question/<qid>')
 def question(qid):

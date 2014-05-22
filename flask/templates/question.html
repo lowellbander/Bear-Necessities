@@ -37,6 +37,7 @@
                     <li><a href="#">Newest</a></li>
                 </ul>
                 <h3>{{data.nAnswers}} Answers</h3>
+                <a href="{{ url_for('question_answer', qid=data.id) }}" class="btn btn-primary navbar-btn navbar-left">Add Answer</a>
             </header>
 
             {% for answer in data.answer %}
