@@ -45,16 +45,13 @@ def question_ask():
         }
     }
     if request.method == 'POST':
-        print 'wat'
-        print request.form['body']
         param = {
             'body': request.form['body'],
             'title': request.form['title'],
             'user': '53797257945d32603d5196f9',
+            'tags': request.form['tags'].split(),
         }
-        print param
         response = unirest.post(settings.API_URL + 'question/', headers={'Accept':'application/json', 'Content-Type': 'application-json'}, params=json.dumps(param))
-        print response.body
 
         return redirect(url_for('question', qid=response.body['id']))
 
