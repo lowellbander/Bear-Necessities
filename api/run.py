@@ -1,10 +1,12 @@
+import os
+
 from flask import Flask
 from flask.ext.mongoengine import MongoEngine
 from flask.ext.mongorest import MongoRest
 from flask.ext.mongorest.views import ResourceView
 from flask.ext.mongorest.resources import Resource
 from flask.ext.mongorest import operators as ops
-from flask.ext.mongorest import methods  
+from flask.ext.mongorest import methods
 
 app = Flask(__name__)
 app.debug = True
@@ -94,4 +96,7 @@ class CommentView(ResourceView):
     methods = [methods.Create, methods.Update, methods.Fetch, methods.List, methods.Delete]
 
 if __name__ == '__main__':
-    app.run()
+    #app.run()
+    port = int(os.environ.get('PORT', 8000))
+    app.run(host='0.0.0.0', port=port)
+
