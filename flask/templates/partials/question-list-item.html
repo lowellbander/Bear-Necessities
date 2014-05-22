@@ -15,7 +15,7 @@
 
     <div class="qa-content">
         <h4 class="qa-list-title">
-            {{ prefix }}<a href="{{ url_for('question', qid=question._id) }}">{{ question.title }}</a>
+            {{ prefix }}<a href="{{ url_for('question', qid=question.id) }}">{{ question.title }}</a>
 
             {% if question.tags %}
             <div class="qa-tags">
