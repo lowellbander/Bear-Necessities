@@ -3,6 +3,8 @@ Bear-Necessities
 
 Think Stack Overflow for UCLA.
 
+![screenshot](screenshot.png)
+
 TODO
 ==========
 * make tags comma separated
