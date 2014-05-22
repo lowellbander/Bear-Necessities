@@ -8,7 +8,7 @@
 <div class="qa-question">
     <div class="qa-score qa-score-small">
         <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-arrow-up"></span></a>
-        {{ question.post.upvotes - question.post.downvotes }}
+        {{ question.upvotes - question.downvotes }}
         <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-arrow-down"></span></a>
         <a href="#" class="qa-score-vote"><span class="glyphicon glyphicon-star-empty"></span></a>
     </div>
@@ -28,7 +28,7 @@
             {% endif %}
         </h4>
 
-        {{ question.post.body }}
+        {{ question.body }}
 
         <div class="qa-meta qa-meta-small">
             <ul class="list-inline">

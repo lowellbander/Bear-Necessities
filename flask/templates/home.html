@@ -16,7 +16,7 @@
                 </ul>
             </header>
 
-            {% for question in data._items %}
+            {% for question in data %}
                 {% with %}
                     {% set prefix = '[CS] ' %}
                     {% include 'partials/question-list-item.html' %}

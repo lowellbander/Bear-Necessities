@@ -55,7 +55,8 @@ def test():
 @app.route('/')
 def home_page():
     response = unirest.get(settings.API_URL + 'question', headers={'Accept':'application/json'}, params={'embedded':'{"post":1}'})
-    return render_template('home.html', data=response.body)
+    data = response.body['data']
+    return render_template('home.html', data=data)
 
 @app.route('/question/ask', methods=['GET', 'POST'])
 def question_ask():
