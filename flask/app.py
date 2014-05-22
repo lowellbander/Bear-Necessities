@@ -66,8 +66,6 @@ def question(qid):
     url = settings.API_URL + 'question/' + qid
     response = unirest.get(url, headers={'Content-Type':'application/json'}, params={'embedded':'{"post":1}'})
 
-    response.body['votes'] = response.body['upvotes'] - response.body['downvotes']
-
     #get answers
     #answers = get_answers(qid)
     #pprint(answers)
