@@ -42,7 +42,7 @@
             {% for answer in data.answer %}
                 <div class="qa-answer">
                     {% with %}
-                        {% set post = answer%}
+                        {% set post = answer %}
                         {% include 'partials/post.html' %}
                     {% endwith %}
                 </div>

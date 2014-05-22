@@ -35,9 +35,6 @@ class Post(db.Document):
     user = db.ReferenceField(User)
     meta = {'allow_inheritance': True}
 
-class Answer(Post):
-    pass
-
 class Comment(Post):
     parent = db.ReferenceField(Post)
 
@@ -46,7 +43,9 @@ class Question(Post):
     tags = db.ListField(db.StringField())
     course = db.StringField()
     major = db.StringField()
-    answer = db.ListField(db.ReferenceField(Answer))
+
+class Answer(Post):
+    question = db.ReferenceField(Question)
 
 class UserResource(Resource):
     document = User
@@ -56,6 +55,9 @@ class UserResource(Resource):
 
 class AnswerResource(Resource):
     document = Answer
+    filters = {
+        'question': [ops.Exact]
+    }
 
 class CommentResource(Resource):
     document = Comment
