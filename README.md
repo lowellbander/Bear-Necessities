@@ -3,4 +3,8 @@ Bear-Necessities
 
 Think Stack Overflow for UCLA.
 
-Using [Eve](http://python-eve.org/).
+TODO
+==========
+* make tags comma separated
+* preview question before posting
+* typeahead for course listing using UCLAAPI
