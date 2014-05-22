@@ -39,10 +39,10 @@
                 <h3>N Answers</h3>
             </header>
 
-            {% for answer in data.answers %}
+            {% for answer in data.answer %}
                 <div class="qa-answer">
                     {% with %}
-                        {% set post = answer.post %}
+                        {% set post = answer%}
                         {% include 'partials/post.html' %}
                     {% endwith %}
                 </div>
