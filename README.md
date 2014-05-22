@@ -9,7 +9,7 @@ TODO
 ==========
 * make tags comma separated (build the list in realtime (angular?))
 * preview question before posting
-* typeahead for course listing using UCLAAPI
+* [typeahead](http://twitter.github.io/typeahead.js/examples/) for course listing using UCLAAPI
 * be able to answer a question
 * implement voting
 * implement user auth (SSO)
