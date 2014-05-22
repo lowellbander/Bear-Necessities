@@ -30,28 +30,6 @@ def get_user(uid):
     user = response.body
     return user
 
-def get_answers(qid):
-    #qid == question._id
-
-    #get all questions
-    response = unirest.get(settings.API_URL + 'answer/', headers={'Content-Type':'application/json'}, params={'embedded':'{"post":1}'})
-    answers = response.body['_items']
-
-    #filter for the ones that have qid has their question's id
-    relevant = []
-    for answer in answers:
-        if answer['question'] == qid:
-            answer['post']['user'] = get_user(answer['post']['user'])
-            relevant.append(answer)
-    return relevant
-
-@app.route('/test')
-def test():
-    _id = request.args['id']
-    get_answers(_id)
-    #get_user(_id)
-    return "testing..."
-
 @app.route('/')
 def home_page():
     response = unirest.get(settings.API_URL + 'question', headers={'Accept':'application/json'}, params={'embedded':'{"post":1}'})
