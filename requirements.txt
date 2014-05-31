@@ -1,11 +1,26 @@
 Flask==0.10.1
+<<<<<<< HEAD
+=======
+Flask-Assets==0.9
+>>>>>>> FETCH_HEAD
 Flask-MongoRest==0.1.1
 Flask-Views==0.2.1
 Flask-WTF==0.9.5
 Jinja2==2.7.2
 MarkupSafe==0.23
+<<<<<<< HEAD
 WTForms==1.0.5
 Werkzeug==0.9.4
+=======
+Pygments==1.6
+Sphinx==1.2.2
+WTForms==1.0.5
+Werkzeug==0.9.4
+argparse==1.2.1
+cleancat==0.3
+distribute==0.6.24
+docutils==0.11
+>>>>>>> FETCH_HEAD
 flask-mongoengine==0.7.0
 itsdangerous==0.24
 mimerender==0.5.4
@@ -14,4 +29,8 @@ pymongo==2.7.1
 python-dateutil==2.2
 python-mimeparse==0.1.4
 six==1.6.1
+<<<<<<< HEAD
+=======
+webassets==0.9
+>>>>>>> FETCH_HEAD
 wsgiref==0.1.2
